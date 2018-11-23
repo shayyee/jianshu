@@ -11,7 +11,8 @@ export const GlobalIconStyle = createGlobalStyle`
 
 .iconfont {
   font-family:"iconfont" !important;
-  font-size:16px;
+  font-size: 19px;
+  vertical-align: middle;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

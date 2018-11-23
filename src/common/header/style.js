@@ -54,6 +54,10 @@ position: relative;
     line-height: 30px;
     border-radius: 15px;
     text-align: center;
+    &.focused {
+        background: #999;
+        color: #fff;
+    }
 }
 `
 
@@ -66,12 +70,30 @@ border: none;
 outline: none;
 border-radius: 19px;
 margin: 9px 0 0 20px;
-padding: 0 20px;
+padding: 0 30px 0 20px;
 background: #eee;
 box-sizing: border-box;
 font-size: 14px;
+color: #666;
 &::placeholder {
     color: #999;
+}
+&.focused {
+    width: 240px;
+}
+&.slide-enter {
+    width: 160px;
+    transition: all .5s ease;
+}
+&.slide-enter-active{
+    width: 240px;
+}
+&.slide-exit {
+    width: 240px;
+    transition: all .2s ease;
+}
+&.slide-exit-active{
+    width: 160px;
 }
 `
 export const Addition = styled.div`
@@ -79,6 +101,10 @@ position: absolute;
 right: 0;
 top:0;
 height: 56px;
+.icon-write {
+    margin-right: 3px;
+    vertical-align: baseline;
+}
 `
 
 export const Button = styled.div`
