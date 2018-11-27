@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { SEARCH_INPUT_BLUR, SEARCH_INPUT_FOCUS } from '../../store/actionTypes'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
+import * as actionCreators from '../../store/modules/header/actionCreator';
 import { 
     HeaderWrapper, 
     Logo, 
     Nav, 
     NavItem,
     SearchWrapper,
+    SearchInfo,
+    SearchInfoTitle,
+    SearchInfoSwitch,
+    SearchInfoList,
+    SearchInfoItem,
     NavSrearch,
     Addition,
     Button
@@ -40,6 +45,22 @@ class Header extends Component {
                         <i 
                             className={focused ? 'focused iconfont':'iconfont'}
                         >&#xe637;</i>
+                        <SearchInfo>
+                            <SearchInfoTitle>热门搜索
+                                <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                            </SearchInfoTitle>
+                            <SearchInfoList>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                                <SearchInfoItem>图书</SearchInfoItem>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                                <SearchInfoItem>教育</SearchInfoItem>
+                            </SearchInfoList>
+                        </SearchInfo>
                     </SearchWrapper>
                 </Nav>
                 <Addition>
@@ -54,22 +75,16 @@ class Header extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        focused: state.header.focused
+        focused: state.getIn(['header','focused'])
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
-            const action = {
-                type: SEARCH_INPUT_FOCUS
-            }
-            dispatch(action);
+            dispatch(actionCreators.searchFocus());
         },
         handleInputBlur() {
-            const action = {
-                type: SEARCH_INPUT_BLUR
-            }
-            dispatch(action);
+            dispatch(actionCreators.searchBlur());
         }
     }
 }
